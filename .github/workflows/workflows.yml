@@ -1,8 +1,5 @@
 name: Deployement du binaire windows
-on: 
-  push:
-    branches:
-      - master 
+on: [workflow_dispatch, push]
  
 jobs:
   windows:
