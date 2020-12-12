@@ -1,6 +1,4 @@
-name: Deployement
-
-# when it active ? 
+name: Deployement du binaire windows
 on: 
   push:
     branches:
