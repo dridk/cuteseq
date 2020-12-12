@@ -19,17 +19,17 @@ jobs:
        with:
           python-version: '3.8'
           architecture: ${{matrix.architecture}}   
-        - name: install windows dependance 
-          run: |
-              pip install pywin32
-              pip install PyInstaller==4.0
-              pip install pytest
-        - name: test 
-          run: python -m pytest tests
-        - name: create binary
-          run: pyinstaller --name="cuteseq_${{matrix.architecture}}" --hidden-import json --add-data "cuteseq;cuteseq" cuteseq\__main__.py
-        - name: Upload artifact 
-          uses: actions/upload-artifact@v2    
-          with:
-            name: cuteseq-standalone-${{matrix.architecture}}
-            path: dist   
+      - name: install windows dependance 
+        run: |
+            pip install pywin32
+            pip install PyInstaller==4.0
+            pip install pytest
+      - name: test 
+        run: python -m pytest tests
+      - name: create binary
+        run: pyinstaller --name="cuteseq_${{matrix.architecture}}" --hidden-import json --add-data "cuteseq;cuteseq" cuteseq\__main__.py
+      - name: Upload artifact 
+        uses: actions/upload-artifact@v2    
+        with:
+          name: cuteseq-standalone-${{matrix.architecture}}
+          path: dist   
